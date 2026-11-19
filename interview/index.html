@@ -51,6 +51,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/interview.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -764,6 +766,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、大模型与 LLM（近年高频）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十、深度学习基础
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十一、公司真题精选（据公开面经整理的常见题型）
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -886,6 +921,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、大模型与 LLM（近年高频）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十、深度学习基础
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十一、公司真题精选（据公开面经整理的常见题型）
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -905,7 +973,7 @@
 
 <h1 id="_1">面试题库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>精选数据科学 / 机器学习常见面试题 60 道，按课程主线分 8 大类。点开题目即可看答案，建议先自己答再看。</p>
+<p>精选数据科学 / 机器学习常见面试题 <strong>105 道</strong>，按课程主线分 <strong>11 大类</strong>。点开题目即可看答案，建议先自己答再看。可用顶部按钮按「难度 / 岗位」筛选。</p>
 </blockquote>
 <hr />
 <div class="admonition info">
@@ -917,6 +985,25 @@
 </ul>
 <p>想按岗位冲刺，优先刷「大厂算法岗 / 通用必考」；想稳过基础，先刷「入门 / 基础」。</p>
 </div>
+<div class="filter-bar">
+  <span class="filter-label">难度：</span>
+  <button class="diff-btn active" data-value="all">全部</button>
+  <button class="diff-btn" data-value="入门">入门</button>
+  <button class="diff-btn" data-value="基础">基础</button>
+  <button class="diff-btn" data-value="进阶">进阶</button>
+  <button class="diff-btn" data-value="高级">高级</button>
+</div>
+<div class="filter-bar">
+  <span class="filter-label">岗位：</span>
+  <button class="role-btn active" data-value="all">全部</button>
+  <button class="role-btn" data-value="通用必考">通用必考</button>
+  <button class="role-btn" data-value="大厂算法岗">大厂算法岗</button>
+  <button class="role-btn" data-value="数据分析岗">数据分析岗</button>
+  <button class="role-btn" data-value="数据科学岗">数据科学岗</button>
+  <button class="role-btn" data-value="外企与量化">外企与量化</button>
+</div>
+<p>当前显示 <span id="q-count">105</span> 题</p>
+
 <h2 id="_2">一、统计学基础<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <details class="question">
 <summary>1. 什么是 p 值？它不是什么？〔基础 · 通用必考〕</summary>
@@ -1177,6 +1264,213 @@
 <p class="admonition-title">刷题建议</p>
 <p>先自己盖住答案答一遍，再展开对照。重点押第 1、12、13、21、27、35、43、45 题——这些是面试出现频率最高的。</p>
 </div>
+<hr />
+<h2 id="llm">九、大模型与 LLM（近年高频）<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>61. 什么是 Transformer？核心结构是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>基于自注意力机制，不依赖循环/卷积。由编码器-解码器堆叠而成，每层含多头自注意力 + 前馈网络 + 残差连接 + LayerNorm；用位置编码补充序列顺序信息。</p>
+</details>
+<details class="question">
+<summary>62. 什么是自注意力（self-attention）？Q/K/V 是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>每个 token 通过三组权重映射成 Query/Key/Value；用 Q·Kᵀ 算相似度得到注意力分数，softmax 归一化后加权求和 V，得到融合了全局上下文的表示。</p>
+</details>
+<details class="question">
+<summary>63. 什么是 RAG？为什么需要它？〔进阶 · 大厂算法岗〕</summary>
+<p>检索增强生成：先从外部知识库（向量检索）召回相关文档，拼进提示词再让大模型生成。能缓解幻觉、让答案可溯源、无需重新训练即可接入私有知识。</p>
+</details>
+<details class="question">
+<summary>64. 什么是 LoRA？为什么能高效微调？〔进阶 · 大厂算法岗〕</summary>
+<p>低秩适配：冻结原模型权重，只训练注入的低秩矩阵 ΔW=BA。可训练参数极少、显存小、即插即用，是当前主流的高效微调方案。</p>
+</details>
+<details class="question">
+<summary>65. 预训练、微调、提示工程有什么区别？〔基础 · 大厂算法岗〕</summary>
+<p>预训练在超大规模语料上学通用能力；微调在下游数据上继续训练适配任务；提示工程不训练参数，只靠精心设计 prompt 引导模型输出。</p>
+</details>
+<details class="question">
+<summary>66. 什么是大模型「幻觉」？怎么缓解？〔进阶 · 大厂算法岗〕</summary>
+<p>模型生成看似通顺但事实错误的内容。缓解：RAG 检索增强、要求引用来源、降低采样温度、明确"不知道就说不知道"、后处理事实校验。</p>
+</details>
+<details class="question">
+<summary>67. 什么是向量数据库？和传统数据库区别？〔基础 · 大厂算法岗〕</summary>
+<p>专门存储向量并做近似最近邻（ANN）相似度检索，用于 embedding 语义搜索、RAG 召回。代表：Milvus、Pinecone、Weaviate。传统库按精确匹配/范围查询，向量库按语义相似度查询。</p>
+</details>
+<details class="question">
+<summary>68. 怎么评估一个大模型好不好？〔进阶 · 大厂算法岗〕</summary>
+<p>分维度：通用能力（MMLU 等公开 benchmark）、业务任务指标（如 RAG 召回率/答案准确率）、人工评估、以及安全/幻觉率/成本/延迟。要多指标 + 人工抽检，不能只看榜单分数。</p>
+</details>
+<hr />
+<h2 id="_7">十、深度学习基础<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>69. 神经网络的前向传播和反向传播是什么？〔基础 · 大厂算法岗〕</summary>
+<p>前向传播从输入逐层计算得到输出和损失；反向传播用链式法则把损失的梯度从输出层逐层回传到各参数，再用梯度下降更新权重。</p>
+</details>
+<details class="question">
+<summary>70. 常见激活函数有哪些？ReLU 为什么常用？〔基础 · 大厂算法岗〕</summary>
+<p>Sigmoid、Tanh、ReLU、Leaky ReLU、GELU 等。ReLU=max(0,x)：计算快、正区间梯度恒为 1 能缓解梯度消失；缺点是负区间梯度为 0 产生"死神经元"，可用 Leaky ReLU 缓解。</p>
+</details>
+<details class="question">
+<summary>71. 什么是梯度消失和梯度爆炸？怎么解决？〔进阶 · 大厂算法岗〕</summary>
+<p>深层网络反向传播时梯度逐层连乘，若每层都 &lt;1 会指数衰减到 0（消失）、都 &gt;1 会爆炸。解决：合理初始化、批归一化（BN）、残差连接、ReLU 类激活、梯度裁剪。</p>
+</details>
+<details class="question">
+<summary>72. SGD 和 Adam 的区别？〔进阶 · 大厂算法岗〕</summary>
+<p>SGD 用固定或衰减学习率，收敛慢但泛化常更好；Adam 用一阶+二阶矩自适应调整学习率，收敛快、对超参不敏感，但有时泛化略差。工程上常用 AdamW。</p>
+</details>
+<details class="question">
+<summary>73. CNN 的核心思想？卷积和池化是干什么的？〔基础 · 大厂算法岗〕</summary>
+<p>卷积核在输入上滑动提取局部特征（权重共享、平移不变）；池化（max/average）下采样降维、扩大感受野、增强鲁棒性。擅长图像等网格数据。</p>
+</details>
+<details class="question">
+<summary>74. RNN 和 LSTM 的区别？LSTM 解决了什么？〔进阶 · 大厂算法岗〕</summary>
+<p>RNN 按时间步循环处理序列，但长期依赖下易梯度消失；LSTM 引入输入门/遗忘门/输出门和细胞状态，选择性记忆与遗忘，缓解长程依赖问题。</p>
+</details>
+<details class="question">
+<summary>75. dropout 和 batch normalization 分别是干什么的？〔基础 · 大厂算法岗〕</summary>
+<p>dropout 训练时随机丢弃一部分神经元，降低神经元共适应、防过拟合（可看作隐式集成）；BN 对每个 mini-batch 归一化，加速收敛、稳定训练、允许更大学习率。</p>
+</details>
+<details class="question">
+<summary>76. 学习率太大或太小会怎样？〔入门 · 大厂算法岗〕</summary>
+<p>太大：损失震荡甚至发散、无法收敛；太小：收敛极慢、易卡在局部最优。常用学习率调度（预热 + 衰减）或自适应优化器平衡。</p>
+</details>
+<hr />
+<h2 id="_8">十一、公司真题精选（据公开面经整理的常见题型）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>以下按公司/岗位归类，是这些公司面试中的高频题型（非逐字真题，题型与考察点真实）。答案侧重思路与要点。</p>
+</div>
+<details class="question">
+<summary>77. 字节：推荐系统的召回和排序分别是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>召回从海量候选里快速筛出几百个可能感兴趣的（重效率，常用双塔/向量召回）；排序对召回结果精排打分（重精度）。完整漏斗：召回 → 粗排 → 精排 → 重排。</p>
+</details>
+<details class="question">
+<summary>78. 字节：怎么保证训练/推理时的特征一致性？〔高级 · 大厂算法岗〕</summary>
+<p>线上线下特征口径不一致会导致线上退化。解决：统一特征平台、离线/在线特征同源落表、线上特征回放校验、监控特征分布漂移。</p>
+</details>
+<details class="question">
+<summary>79. 字节：用 SQL 求每个用户最近一次购买记录（窗口函数）。〔基础 · 数据分析岗〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rn</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">rn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>80. 阿里：什么是辛普森悖论？和 AB 实验分流有什么关系？〔进阶 · 数据科学岗〕</summary>
+<p>辛普森悖论：分组看是趋势 A，合并后反转为趋势 B（由混杂变量导致）。AB 实验要正确随机分流、检查各组基线一致，并同时看整体与分层结果，避免被混杂变量误导。</p>
+</details>
+<details class="question">
+<summary>81. 阿里：特征重要性怎么算？〔基础 · 大厂算法岗〕</summary>
+<p>树模型：信息增益/分裂次数/节点杂质下降总量。模型无关方法：permutation importance（打乱某特征看性能下降多少）、SHAP（加性归因、更精确）。</p>
+</details>
+<details class="question">
+<summary>82. 阿里：怎么评估一次营销活动的增量效果？〔高级 · 数据科学岗〕</summary>
+<p>不能只看活动后转化，要估计"没活动也会发生"的反事实。方法：随机 AB 实验、倾向得分匹配（PSM）、双重差分（DID）、因果森林等因果推断手段。</p>
+</details>
+<details class="question">
+<summary>83. 腾讯：用户留存分析怎么做（漏斗 / 同期群）？〔进阶 · 数据分析岗〕</summary>
+<p>漏斗看各环节转化与流失点；同期群（cohort）按注册/首购时间分组，看不同批次用户的留存曲线，定位是哪个环节、哪批用户流失。</p>
+</details>
+<details class="question">
+<summary>84. 腾讯：社交/游戏里怎么做用户分群？〔进阶 · 数据科学岗〕</summary>
+<p>选行为/画像特征 → 标准化 → 降维（PCA）→ 聚类（KMeans/层次/DBSCAN）→ 按群特征命名画像 → 精细化运营。注意聚类数选择与可解释性。</p>
+</details>
+<details class="question">
+<summary>85. 腾讯：怎么判断一个数据指标波动是正常的还是异常？〔进阶 · 数据分析岗〕</summary>
+<p>看历史波动区间（均值±k倍标准差）、同比环比、是否节假日/活动/上线变更导致；再用异常检测算法（孤立森林/时序模型）辅助，结合业务判断。</p>
+</details>
+<details class="question">
+<summary>86. 美团：外卖配送时间（ETA）预测怎么建模？〔进阶 · 大厂算法岗〕</summary>
+<p>特征：商家出餐、骑手位置、天气、时段、距离、路况等；用回归/树模型/XGBoost 预测，分城市/时段建模；损失可不对称（超时惩罚更高）。</p>
+</details>
+<details class="question">
+<summary>87. 美团：补贴是否带来增量订单？〔高级 · 数据科学岗〕</summary>
+<p>做增量/归因分析：AB 实验对照，或用因果方法（PSM/DID）估计补贴的净增量，扣除"本来就会下单"的基数，算 ROI。</p>
+</details>
+<details class="question">
+<summary>88. 美团：模型线上效果衰减（退化）怎么办？〔进阶 · 大厂算法岗〕</summary>
+<p>原因：数据/概念漂移、特征失效、负反馈循环。解决：持续监控漂移指标、定时重训、在线学习、A/B 回归、特征新鲜度治理。</p>
+</details>
+<details class="question">
+<summary>89. 百度：搜索里 CTR 预估怎么做？〔进阶 · 大厂算法岗〕</summary>
+<p>预测点击率。经典：LR（稀疏特征）、FM（二阶交叉）、GBDT+LR；深度模型 DIN/DIEN 等。核心是海量稀疏特征工程 + 大规模训练。</p>
+</details>
+<details class="question">
+<summary>90. 百度：什么是知识图谱？实体对齐、链接预测是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>用「实体-关系-实体」三元组表示知识。链接预测=判断两个实体间可能存在什么关系；实体对齐=合并不同来源指向同一实体的节点。常用 TransE 等图嵌入建模。</p>
+</details>
+<details class="question">
+<summary>91. 华为：通信网络异常检测怎么做？〔进阶 · 大厂算法岗〕</summary>
+<p>时序异常检测（告警突增、KPI 突降）、孤立森林/LSTM-AE 等无监督方法，结合规则阈值；关键要低误报、可解释、能定位根因。</p>
+</details>
+<details class="question">
+<summary>92. 华为：什么是模型压缩 / 知识蒸馏？〔进阶 · 大厂算法岗〕</summary>
+<p>把大模型能力迁移到小模型用于端侧/边缘部署：知识蒸馏（大模型软标签教小模型）、剪枝、量化（降精度）、低秩分解。</p>
+</details>
+<details class="question">
+<summary>93. 外企（Google/Meta）：MAP@K 和 NDCG 是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>排序质量指标。MAP@K 看前 K 个结果相关性的平均精度；NDCG 对位置加权（越靠前权重越大）。都是搜索/推荐的核心排序指标。</p>
+</details>
+<details class="question">
+<summary>94. 外企（Google/Meta）：数据大到单机放不下怎么办？〔进阶 · 大厂算法岗〕</summary>
+<p>分布式存储/计算（Spark/Hadoop）、分片、抽样、增量/流式训练、特征降维；模型侧用分布式训练框架或 GPU 集群。</p>
+</details>
+<details class="question">
+<summary>95. 外企：AB 测试的最小样本量怎么估算？〔进阶 · 数据科学岗〕</summary>
+<p>由基线转化率、期望最小可检测效应（MDE）、显著性水平 α、统计功效 1−β 决定。MDE 越小、功效越高，所需样本越多；可用功效分析工具估算。</p>
+</details>
+<details class="question">
+<summary>96. 量化：量化策略里的过拟合长什么样？怎么防？〔高级 · 外企与量化〕</summary>
+<p>回测反复调参导致"拟合历史噪声"，实盘失效。防：样本外测试、交叉验证、参数敏感性分析、计入交易成本/滑点、少参数、看稳健指标（夏普/回撤）。</p>
+</details>
+<details class="question">
+<summary>97. 量化：什么是夏普比率？回测有哪些陷阱？〔进阶 · 外企与量化〕</summary>
+<p>夏普=(策略收益−无风险利率)/收益波动，衡量单位风险回报。回测陷阱：过拟合、未来函数（偷看未来数据）、忽略交易成本/滑点、幸存者偏差。</p>
+</details>
+<details class="question">
+<summary>98. 手撕：用 Python 手写线性回归的梯度下降。〔基础 · 大厂算法岗〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gd_lr</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">pred</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">w</span> <span class="o">+</span> <span class="n">b</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">err</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">-</span> <span class="n">y</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">w</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">err</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">b</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">err</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>99. 手撕：AUC 的计算思路是什么？〔进阶 · 大厂算法岗〕</summary>
+<p>AUC = 随机正样本排在随机负样本前面的概率。可按预测分排序，统计"正样本排在负样本前"的对子比例；或用"排序后正例的秩和"公式计算。</p>
+</details>
+<details class="question">
+<summary>100. 手撕：K-Means 聚类的思路是什么？〔基础 · 大厂算法岗〕</summary>
+<p>①随机选 k 个中心；②每个点归到最近的中心；③更新中心为该簇均值；④重复②③直到中心不再变化。对初始点敏感，常用 k-means++ 初始化。</p>
+</details>
+<details class="question">
+<summary>101. 神经网络里的正则化（weight decay）是什么？〔基础 · 大厂算法岗〕</summary>
+<p>在损失里加 L2 惩罚 ‖w‖²，等效于权重衰减，限制权重过大、防过拟合。AdamW 把它与自适应学习率正确解耦。</p>
+</details>
+<details class="question">
+<summary>102. 什么是早停（early stopping）？〔入门 · 大厂算法岗〕</summary>
+<p>训练时监控验证集损失，连续若干轮不再下降就停止，取验证最优的模型，防止过拟合。</p>
+</details>
+<details class="question">
+<summary>103. 深度学习里类别不平衡怎么处理（focal loss）？〔进阶 · 大厂算法岗〕</summary>
+<p>除重采样、类别权重外，focal loss 对"易分类样本"降权，让模型更关注难分样本，目标检测等极端不平衡场景常用。</p>
+</details>
+<details class="question">
+<summary>104. 什么是迁移学习？〔基础 · 大厂算法岗〕</summary>
+<p>把在大数据上学到的预训练模型，迁移到小样本新任务上微调，省数据、收敛快。如 ImageNet 预训练 CNN 做下游分类。</p>
+</details>
+<details class="question">
+<summary>105. 什么是 embedding？word2vec 的原理？〔进阶 · 大厂算法岗〕</summary>
+<p>把离散对象（词/用户/物品）映射成稠密向量，语义相近则向量相近。word2vec 用 CBOW/Skip-gram 在语料上学词向量，能捕捉"国王−男人+女人≈女王"这类语义关系。</p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">刷题策略</p>
+<p>全库共 105 题。求职冲刺：先刷「大厂算法岗 + 通用必考」，再按目标公司补「公司真题」；转数据分析：刷「数据分析岗」；转算法/大模型：刷「大厂算法岗」+ 第九、十节。</p>
+</div>
 
 
 
@@ -1236,6 +1530,8 @@
     
     
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/interview-filter.js"></script>
       
     
   </body>
