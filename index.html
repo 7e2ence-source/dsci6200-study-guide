@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="description" content="DSCI 6200 数据科学与机器学习 · 系统化学习辅导手册（就业导向），覆盖第 1~4 周。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'self';">
+<title>DSCI 6200 数据科学与机器学习 · 学习辅导手册</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <h1>DSCI 6200 数据科学与机器学习</h1>
+    <p>系统化学习辅导手册 · 就业导向</p>
+    <p class="meta">覆盖已发布章节：第 1~4 周（对应大纲第 1~4 单元）· 讲人话、给场景、标优先级</p>
+    <div class="badges">
+      <span class="badge">⭐ 越多越要死磕</span>
+      <span class="badge">「可暂缓」别恋战</span>
+      <span class="badge">每章含自测题（点开看答案）</span>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="目录">
+  <div class="wrap">
+    <a href="#overview">总览</a>
+    <a href="#route">学习路线</a>
+    <a href="#w1">第1周</a>
+    <a href="#w2">第2周</a>
+    <a href="#w3">第3周</a>
+    <a href="#w4">第4周</a>
+    <a href="#exam">期中冲刺</a>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+
+  <section id="overview">
+    <h2><span class="num">〇</span>就业能力地图</h2>
+    <p class="sub">这 4 周学完，能拼出一套「数据科学入门」完整技能链，直接对应三类岗位。</p>
+    <div class="card">
+      <table>
+        <tr><th>岗位</th><th>最需要本课哪些能力</th></tr>
+        <tr><td>数据分析师</td><td>统计素养（第1周）＋ 模型评估 ROC/AUC（第3周）</td></tr>
+        <tr><td>数据科学家</td><td>全部，尤其正则化回归（第2周）＋ 集成方法（第4周）</td></tr>
+        <tr><td>机器学习工程师</td><td>决策树/随机森林/XGBoost（第3、4周）＋ 交叉验证（第4周）</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>优先级总纲（按就业刚需排序）</h3>
+      <ol>
+        <li><b class="star">⭐⭐⭐⭐⭐</b> 决策树、随机森林、XGBoost（第3、4周）—— 面试和干活主力</li>
+        <li><b class="star">⭐⭐⭐⭐⭐</b> 交叉验证 + 模型评估指标（精确率/召回率/AUC）—— 面试必考</li>
+        <li><b class="star">⭐⭐⭐⭐</b> 正则化回归 Ridge/Lasso/Elastic Net（第2周）—— 防过拟合基本功</li>
+        <li><b class="star">⭐⭐⭐⭐</b> 统计素养：p 值、贝叶斯思维、效应量（第1周）—— 沟通的底层语言</li>
+        <li><b class="star">⭐⭐⭐</b> 大数据 3V、DIKW、CRISP-DM（第1周）—— 方法论</li>
+        <li><b class="star">⭐⭐</b> 概念性知识：11 个缺点、费雪/皮尔逊哲学 —— 面试谈资</li>
+        <li><b class="star">⭐</b> 可暂缓：SVM 数学、核函数公式、Double/Group Lasso、jackknife、费雪精确检验历史</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="route">
+    <h2><span class="num">〇</span>学习路线图</h2>
+    <p class="sub">建议节奏（把第 3 周决策树提前，因为它是随机森林/XGBoost 的前置、就业价值最高）。</p>
+    <div class="card">
+      <pre><code>第1阶段 打地基：第1周 —— 统计 vs ML，吃透 p 值和贝叶斯
+   ↓
+第2阶段 建模型：第3周 —— 先学决策树（最直观、就业最刚需）
+   ↓
+第3阶段 变更强：第4周 —— 随机森林 + XGBoost + 交叉验证
+   ↓
+第4阶段 防过拟合：第2周 —— 正则化回归，补「模型别背答案」
+   ↓
+第5阶段 冲期中：过一遍「复习清单」+ 每章自测题</code></pre>
+    </div>
+  </section>
+
+  <section id="w1">
+    <h2><span class="num">1</span>第 1 周 · 传统统计 vs 数据科学/机器学习</h2>
+    <p class="sub">核心：理解「思考方式」的区别 —— 先假设再看数据（p 值）vs 先看数据再找解释（机器学习）。</p>
+
+    <div class="card">
+      <h3>学习目标 <span class="tag goal">目标</span></h3>
+      <ul>
+        <li>说清传统统计（假设检验）和机器学习在思考方式上的本质区别。</li>
+        <li>能解释 p 值是什么、不是什么，以及它的 11 个缺点。</li>
+        <li>掌握大数据 3V、DIKW、CRISP-DM、数据科学三块拼图。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>核心知识点</h3>
+      <div class="grid">
+        <ul>
+          <li>假设检验（HT）与 p 值、零假设 H₀</li>
+          <li>贝叶斯定理、先验/似然/后验</li>
+          <li>P(数据|假设) vs P(假设|数据)</li>
+          <li>假设检验的 11 个缺点</li>
+          <li>ASA 2016 关于 p 值的六原则</li>
+        </ul>
+        <ul>
+          <li>效应量 Cohen's d = .2 / .5 / .8</li>
+          <li>数据科学 = 统计 + 计算机 + 领域知识；4A</li>
+          <li>大数据 3V：Volume / Velocity / Variety</li>
+          <li>DIKW 金字塔；CRISP-DM 六步</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>关键概念通俗解释</h3>
+      <ul>
+        <li><b>零假设 H₀</b>：先默认「没效果、没区别、纯属运气」，再想办法打脸它。像法庭「先假设被告无辜」。</li>
+        <li><b>p 值</b>：如果 H₀ 为真，看到现在这个（或更极端的）结果的概率，是 <code>P(数据|H₀)</code>，<b>不是</b>「结论出错的概率」。</li>
+        <li><b>贝叶斯</b>：用新证据不断更新旧信念。判断一件事，不能只看证据强弱，还要看它本身多常见（先验）。</li>
+        <li><b>效应量</b>：效应到底「有多大」，p 值不回答这个，所以要和 p 值一起报告。</li>
+        <li><b>大数据 3V</b>：量大（Volume）、来得快（Velocity）、种类杂（Variety）。</li>
+      </ul>
+      <div class="lead">生活例子：抛硬币 10 次全正面 → 若硬币公平，这概率只有 0.1% → 「公平」说不通 → 怀疑硬币有鬼。这个 0.1% 就是 p 值。</div>
+    </div>
+
+    <div class="card">
+      <h3>实际就业应用场景 <span class="tag job">就业</span></h3>
+      <ul>
+        <li><b>产品/运营 A/B 测试</b>：上线新按钮看点击率是否「显著」提升 —— 本质是假设检验，要会读 p 值、还要会看效应量。</li>
+        <li><b>风控/增长</b>：判断一个「差异」是真实信号还是随机噪声。</li>
+        <li><b>和算法同事对齐</b>：理解为什么工程师说「p 值在大数据里没用，我们看 AUC」。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>需要重点掌握的技能 <span class="tag skill">⭐⭐⭐⭐</span></h3>
+      <ul>
+        <li>能用自己的话讲清 p 值、零假设、贝叶斯三件套。</li>
+        <li>能说出假设检验 2~3 个缺点，并对应到机器学习的解决办法。</li>
+        <li>记住大数据 3V、CRISP-DM 六步（面试常问「你做一个数据项目怎么走」）。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>可暂缓了解的内容 <span class="tag skip">⭐ 别恋战</span></h3>
+      <ul>
+        <li>费雪 vs 皮尔逊两大范式的哲学细节（知道「两派被混用」即可）。</li>
+        <li>WEIRD 样本、OSC 2015 复现危机具体数字（有印象即可）。</li>
+        <li>4A 的完整英文全称（知道四要素即可）。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>自测题（点开看答案）</h3>
+      <details><summary>1. 用一句话向「完全不懂统计的产品经理」解释 p 值。</summary><div class="ans">「如果『这个改动没效果』的假设成立，我们看到现在这个结果的概率就是 p 值；p 越小，『没效果』就越说不通。」</div></details>
+      <details><summary>2. 罕见病发病率 1%、检测敏感度 99%、误报率 1%，阳性者真得病概率约多少？</summary><div class="ans">约 <b>50%</b>。1000 人里 10 真病（约 10 阳性）+ 990 没病（约 10 误报），阳性共约 20 人，真病占 10/20 = 50%。不是 99%，因为「病本身太罕见」这个先验把结果拉回了一半。</div></details>
+      <details><summary>3. 说出假设检验的 4 个缺点，各配一个机器学习「解药」。</summary><div class="ans">例：① 不评估效应大小 → DS 直接问 P(H|D)；② 大样本必显著 → DS 防过拟合；③ 参数假设脆弱 → DS 用非参数；④ 依赖理论分布 → DS 用经验分布（重采样）。</div></details>
+      <details><summary>4. 面试模拟：用 CRISP-DM 六步讲清「用户流失预测」项目。</summary><div class="ans">业务理解(定目标：预测谁会流失) → 数据理解(摸清用户行为数据) → 数据准备(清洗、特征工程) → 建模(决策树/XGBoost) → 评估(AUC) → 部署(上线打分、营销干预)。</div></details>
+    </div>
+  </section>
+
+  <section id="w2">
+    <h2><span class="num">2</span>第 2 周 · 广义回归（正则化/惩罚回归）</h2>
+    <p class="sub">核心：给回归模型「上税」，防止它死记硬背（过拟合）。</p>
+
+    <div class="card"><h3>学习目标 <span class="tag goal">目标</span></h3><ul>
+      <li>说出普通最小二乘（OLS）回归的缺点，尤其过拟合和多重共线性。</li>
+      <li>分清 LASSO / Ridge / 弹性网络的区别，知道何时用哪个。</li>
+      <li>会用 AIC/AICc/BIC 做模型比较。</li>
+    </ul></div>
+
+    <div class="card"><h3>核心知识点</h3><div class="grid"><ul>
+      <li>OLS 回归的 5 个缺点</li>
+      <li>损失函数、正则化/惩罚回归</li>
+      <li>L1（LASSO）vs L2（Ridge）vs 弹性网络</li>
+    </ul><ul>
+      <li>Double Lasso、Group Lasso、自适应弹性网络</li>
+      <li>AIC / AICc / BIC</li>
+    </ul></div></div>
+
+    <div class="card"><h3>关键概念通俗解释</h3><ul>
+      <li><b>过拟合</b>：模型在训练数据上「背答案」，换新数据就垮。像学生死记例题、考试换题型就懵。</li>
+      <li><b>多重共线性</b>：预测变量强相关，模型不稳定。像同时用「身高」和「腿长」预测体重 —— 信息重叠。</li>
+      <li><b>LASSO（L1）</b>：把没用系数<b>压到 0</b>，自动变量筛选。像搬家把不穿的衣服直接扔了。</li>
+      <li><b>Ridge（L2）</b>：把系数<b>往 0 收缩但不断 0</b>，让模型更稳。像把衣服压紧、但都留着。</li>
+      <li><b>弹性网络</b>：L1+L2 结合，大多数情况下最稳。</li>
+      <li><b>AIC/BIC</b>：给「模型复杂度」收税，防止一味堆变量，数值越小越好。</li>
+    </ul></div>
+
+    <div class="card"><h3>实际就业应用场景 <span class="tag job">就业</span></h3><ul>
+      <li><b>风控评分卡</b>：几百个候选特征，用 Lasso 自动筛出真正有用的几十个。</li>
+      <li><b>销量/价格预测</b>：特征多且相关，用弹性网络更稳。</li>
+      <li><b>银行/保险定价</b>：需要「可解释线性模型」给监管交代时，正则化回归首选。</li>
+    </ul></div>
+
+    <div class="card"><h3>需要重点掌握的技能 <span class="tag skill">⭐⭐⭐⭐</span></h3><ul>
+      <li>一句话讲清 LASSO 和 Ridge 区别（归零筛选 vs 收缩不归零）。</li>
+      <li>知道「特征多、有共线性 → 弹性网络」的决策。</li>
+      <li>会跑一次正则化回归：<code>from sklearn.linear_model import Lasso / Ridge / ElasticNet</code>。</li>
+    </ul></div>
+
+    <div class="card"><h3>可暂缓了解的内容 <span class="tag skip">⭐ 别恋战</span></h3><ul>
+      <li>Double/Group Lasso、自适应弹性网络的数学细节（知道名词即可）。</li>
+      <li>Dantzig 选择器、oracle 性质的严格定义。</li>
+    </ul></div>
+
+    <div class="card"><h3>自测题（点开看答案）</h3>
+      <details><summary>1. 用生活例子解释「过拟合」。</summary><div class="ans">死记硬背例题、考试换题型就懵 —— 模型把训练数据的噪声都背下来了，对新数据泛化差。</div></details>
+      <details><summary>2. LASSO 和 Ridge 各解决什么？为什么弹性网络「两者都要」？</summary><div class="ans">LASSO 把系数归零做变量筛选（但共线时只选一个）；Ridge 收缩系数不归零、解共线（但删不掉变量）。弹性网络 = L1+L2 加权，兼顾筛选与稳定。</div></details>
+      <details><summary>3. AIC 和 BIC 区别？小样本推荐哪个？</summary><div class="ans">AIC 适合交叉验证、BIC 擅长估计真实模型；BIC 惩罚更重。小样本推荐 AICc（对额外参数惩罚更大）。</div></details>
+      <details><summary>4. 实践：用 sklearn 在糖尿病数据跑 Lasso/Ridge/ElasticNet。</summary><div class="ans"><pre><code>from sklearn.linear_model import Lasso, Ridge, ElasticNet
+from sklearn.model_selection import train_test_split
+# X 为特征(年龄/BMI/血压/胆固醇等)，y 为糖尿病进展
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+for m in [Lasso(alpha=0.1), Ridge(alpha=1.0), ElasticNet(alpha=0.1, l1_ratio=0.5)]:
+    m.fit(X_train, y_train)
+    print(m.__class__.__name__, m.score(X_test, y_test))</code></pre></div></details>
+    </div>
+  </section>
+
+  <section id="w3">
+    <h2><span class="num">3</span>第 3 周 · 支持向量机（SVM）与决策树</h2>
+    <p class="sub">核心：决策树是本课就业价值最高的模型，务必吃透；SVM 懂思想即可。</p>
+
+    <div class="card"><h3>学习目标 <span class="tag goal">目标</span></h3><ul>
+      <li>理解 SVM「最大间隔超平面 + 核技巧」的思想。</li>
+      <li><b>重点</b>掌握决策树原理和分割准则（GINI/熵/LogWorth）。</li>
+      <li>会用 ROC/AUC、精确率/召回率评估分类模型。</li>
+    </ul></div>
+
+    <div class="card"><h3>核心知识点</h3><div class="grid"><ul>
+      <li>SVM：分离超平面、核函数</li>
+      <li>决策树：递归分割</li>
+      <li>分割准则：GINI、熵、LogWorth</li>
+    </ul><ul>
+      <li>ROC 曲线、AUC、混淆矩阵</li>
+      <li>准确率 / 精确率 / 召回率</li>
+    </ul></div></div>
+
+    <div class="card"><h3>关键概念通俗解释</h3><ul>
+      <li><b>SVM 核技巧</b>：低维分不开就「升维」再切。像 2D 纸上混在一起的红蓝点，把纸一抖（加一维高度）一刀切开。</li>
+      <li><b>决策树</b>：一连串 if-else 规则把人群层层分开。像医生问诊三连：血压 → 年龄 → 心率 → 判断风险。</li>
+      <li><b>GINI/熵</b>：衡量「分完纯不纯」。一堆苹果混几个橙子就不纯，全苹果就纯，越小越好。</li>
+      <li><b>AUC</b>：区分正负类的综合能力，1 分完美、0.5 是瞎猜。<b>比准确率更靠谱</b>（样本不平衡时光看准确率会骗你）。</li>
+    </ul></div>
+
+    <div class="card"><h3>实际就业应用场景 <span class="tag job">就业</span></h3><ul>
+      <li><b>用户流失/欺诈识别</b>：决策树+随机森林预测「谁会流失 / 这笔交易是否欺诈」。</li>
+      <li><b>医疗辅助诊断</b>：决策树「可解释」，医生能看懂「为什么判高风险」。</li>
+      <li><b>面试高频</b>：精确率 vs 召回率；疾病筛查要召回率（宁错不漏）、垃圾邮件拦截要精确率（别误删）。</li>
+    </ul></div>
+
+    <div class="card"><h3>需要重点掌握的技能 <span class="tag skill">⭐⭐⭐⭐⭐</span></h3><ul>
+      <li>决策树原理 + GINI/熵/信息增益，能讲给面试官听。</li>
+      <li>ROC/AUC 和精确率/召回率，会算、会解释、会选型。</li>
+      <li>SVM 核心思想即可，不必抠数学。</li>
+    </ul></div>
+
+    <div class="card"><h3>可暂缓了解的内容 <span class="tag skip">⭐ 别恋战</span></h3><ul>
+      <li>SVM 数学推导（拉格朗日、对偶、软间隔）。</li>
+      <li>核函数公式细节（记「线性/RBF 最常用」）。</li>
+      <li>CHAID/QUEST/C5 算法内部差异。</li>
+    </ul></div>
+
+    <div class="card"><h3>自测题（点开看答案）</h3>
+      <details><summary>1. 用「医生问诊」比喻解释决策树。</summary><div class="ans">先问「血压多高」→ 分两拨；再问「年龄多大」→ 继续分；再问「心率快不快」→ 判风险。每一步一个 if-else，把人群越分越纯。</div></details>
+      <details><summary>2. 精确率和召回率分别是什么？举一个「更看重召回率」的场景。</summary><div class="ans">精确率=TP/(TP+FP)（判为阳里有多少真阳）；召回率=TP/(TP+FN)（真阳里抓出多少）。癌症筛查要召回率——宁可多误报，也不能漏掉一个真病人。</div></details>
+      <details><summary>3. AUC = 0.5 和 0.9 分别意味着什么？</summary><div class="ans">0.5 = 和抛硬币瞎猜一样，没区分能力；0.9 = 很强，随机抽一个正例和一个负例，模型 90% 概率把正例排前面。</div></details>
+      <details><summary>4. 实践：sklearn 建决策树 + 算 AUC。</summary><div class="ans"><pre><code>from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import roc_auc_score
+m = DecisionTreeClassifier(max_depth=3).fit(X_train, y_train)
+p = m.predict_proba(X_test)[:,1]
+print("AUC =", roc_auc_score(y_test, p))</code></pre></div></details>
+    </div>
+  </section>
+
+  <section id="w4">
+    <h2><span class="num">4</span>第 4 周 · 重采样与集成方法</h2>
+    <p class="sub">核心：从「一棵树」升级到「一片森林」，这是机器学习实战的主力。</p>
+
+    <div class="card"><h3>学习目标 <span class="tag goal">目标</span></h3><ul>
+      <li>理解交叉验证、bootstrap 为何能防止「一次结果靠不住」。</li>
+      <li><b>重点</b>分清 Bagging（随机森林）和 Boosting（XGBoost）。</li>
+      <li>掌握偏差-方差权衡，理解「集成」为何更强。</li>
+    </ul></div>
+
+    <div class="card"><h3>核心知识点</h3><div class="grid"><ul>
+      <li>交叉验证、bootstrap、jackknife、精确检验</li>
+      <li>中心极限定理（CLT）与经验分布</li>
+      <li>偏差-方差权衡</li>
+    </ul><ul>
+      <li>Bagging → 随机森林（袋外样本 OOB）</li>
+      <li>Boosting → 梯度提升、XGBoost、AdaBoost</li>
+      <li>模型选择 vs 模型平均</li>
+    </ul></div></div>
+
+    <div class="card"><h3>关键概念通俗解释</h3><ul>
+      <li><b>交叉验证</b>：数据切几份，轮流留一份当「考试卷」，看模型换题还会不会。</li>
+      <li><b>bootstrap</b>：有放回反复抽样，模拟「重做很多次实验」看结果稳不稳。</li>
+      <li><b>偏差-方差</b>：偏差=打不准（太简单，欠拟合）；方差=打不稳（太复杂，过拟合）。要平衡。</li>
+      <li><b>Bagging（随机森林）</b>：种很多棵「不太一样」的树投票/平均。像 800 个村民各自猜牛重，取平均最准。</li>
+      <li><b>Boosting（XGBoost）</b>：一棒接一棒，每棵树专门修上一棵的错。像接力赛越跑越准。</li>
+      <li><b>袋外样本 OOB</b>：bootstrap 没抽中、留作「免费验证」的约 30% 数据。</li>
+    </ul></div>
+
+    <div class="card"><h3>实际就业应用场景 <span class="tag job">就业</span></h3><ul>
+      <li><b>几乎所有表格型建模</b>：随机森林和 XGBoost 是业界默认首选，Kaggle 竞赛主力。</li>
+      <li><b>信贷/保险/电商/广告</b>：预测违约/理赔/复购/点击，用 XGBoost 跑基线几乎不会错。</li>
+      <li><b>模型稳定上线</b>：交叉验证保证模型不是「碰巧考好」，上生产才稳。</li>
+    </ul></div>
+
+    <div class="card"><h3>需要重点掌握的技能 <span class="tag skill">⭐⭐⭐⭐⭐</span></h3><ul>
+      <li>Bagging vs Boosting 对比（并行/顺序、降方差/降偏差）—— 面试高频。</li>
+      <li>随机森林、XGBoost 何时用、怎么调参（树数量、深度）。</li>
+      <li>交叉验证切分（训练/验证/测试），测试集「留到最后、一次不用」。</li>
+      <li>会跑 <code>RandomForestClassifier</code> 和 <code>xgboost</code>。</li>
+    </ul></div>
+
+    <div class="card"><h3>可暂缓了解的内容 <span class="tag skip">⭐ 别恋战</span></h3><ul>
+      <li>jackknife（留一法）实操 —— 大样本算不动，已被 CV 替代。</li>
+      <li>费雪精确检验历史细节。</li>
+      <li>AdaBoost 细节（知道「用决策树桩、怕噪声」即可）。</li>
+    </ul></div>
+
+    <div class="card"><h3>自测题（点开看答案）</h3>
+      <details><summary>1. 用「一群村民猜牛重」解释随机森林为什么比单棵树准。</summary><div class="ans">单棵树像一个人猜，容易带偏见/噪声；随机森林像 800 人各自独立猜、再取平均 —— 个体误差相互抵消（大数定律），结果更稳。</div></details>
+      <details><summary>2. Bagging 和 Boosting 核心区别？各降偏差还是方差？</summary><div class="ans">Bagging 并行、有放回、模型独立 → 降方差；Boosting 顺序、给误分类加权、后一个修前一个 → 降偏差。</div></details>
+      <details><summary>3. 为什么「随机森林 &gt; 单棵决策树 &gt; 逻辑回归」（课件工程例子）？</summary><div class="ans">OLS 回归只解释 62% 方差、MSE 107；随机森林 R² 91%、MSE 26。集成模型在复杂/非线性数据上预测更准。</div></details>
+      <details><summary>4. 实践：随机森林 + XGBoost 比较 AUC。</summary><div class="ans"><pre><code>from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+from sklearn.model_selection import cross_val_score
+for m in [RandomForestClassifier(n_estimators=100),
+          XGBClassifier(n_estimators=100)]:
+    s = cross_val_score(m, X, y, cv=5, scoring='roc_auc')
+    print(m.__class__.__name__, s.mean())</code></pre></div></details>
+    </div>
+  </section>
+
+  <section id="exam">
+    <h2><span class="num">★</span>期中冲刺复习清单（截止 11-22）</h2>
+    <p class="sub">开卷 take-home，主考阅读材料与课堂讨论。背下这 5 组对比 + 金句即可。</p>
+
+    <div class="card">
+      <h3>必背 5 组对比</h3>
+      <table>
+        <tr><th>#</th><th>对比</th></tr>
+        <tr><td>1</td><td>P(数据|假设) vs P(假设|数据)</td></tr>
+        <tr><td>2</td><td>LASSO vs Ridge vs 弹性网络</td></tr>
+        <tr><td>3</td><td>AIC vs AICc vs BIC</td></tr>
+        <tr><td>4</td><td>Bagging vs Boosting（并行/顺序、降方差/降偏差）</td></tr>
+        <tr><td>5</td><td>精确率 vs 召回率 vs 准确率</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>必背金句 / 结论</h3>
+      <ul>
+        <li>「上帝对 0.06 的爱和 0.05 一样多」—— 0.05 是人为线，无魔法。</li>
+        <li>「拒绝零假设就像拒绝『月亮是绿色奶酪做的』」—— 大样本下 p 值必显著。</li>
+        <li>SAT 例子：同样差 5 分，50 人不显著、500 人显著 —— p 值被样本量绑架。</li>
+      </ul>
+    </div>
+
+    <div class="warn">第 5~8 单元（降维、聚类、神经网络、文本挖掘）课件尚未发布，本手册暂未覆盖，待发布后补全。</div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  DSCI 6200 数据科学与机器学习 · 学习辅导手册 · 基于课程大纲与第 1~4 周课件整理
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
