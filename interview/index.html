@@ -908,259 +908,268 @@
 <p>精选数据科学 / 机器学习常见面试题 60 道，按课程主线分 8 大类。点开题目即可看答案，建议先自己答再看。</p>
 </blockquote>
 <hr />
+<div class="admonition info">
+<p class="admonition-title">难度与岗位标注说明</p>
+<p>每题标题尾部都标了「难度 · 岗位/公司」，方便按需刷题：</p>
+<ul>
+<li><strong>难度</strong>：入门 / 基础 / 进阶 / 高级</li>
+<li><strong>岗位/公司</strong>：通用必考（各类公司都问）· 大厂算法岗 · 数据分析岗 · 数据科学岗 · 外企与量化</li>
+</ul>
+<p>想按岗位冲刺，优先刷「大厂算法岗 / 通用必考」；想稳过基础，先刷「入门 / 基础」。</p>
+</div>
 <h2 id="_2">一、统计学基础<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>1. 什么是 p 值？它不是什么？</summary>
+<summary>1. 什么是 p 值？它不是什么？〔基础 · 通用必考〕</summary>
 <p>p 值 = 在零假设 H₀ 为真的前提下，观察到当前数据（或更极端）的概率，即 <code>P(数据|H₀)</code>。<strong>它不是</strong>"零假设为真的概率"，也不是"结论出错的概率"。p 小只说明"数据在 H₀ 下很罕见"，于是我们倾向拒绝 H₀。</p>
 </details>
 <details class="question">
-<summary>2. 第一类错误和第二类错误分别是什么？</summary>
+<summary>2. 第一类错误和第二类错误分别是什么？〔基础 · 通用必考〕</summary>
 <p>第一类错误（I 型）：H₀ 为真却拒绝了它（"冤枉好人"，概率 = α，通常 0.05）。第二类错误（II 型）：H₀ 为假却没拒绝（"放过坏人"，概率 = β）。功效 power = 1 − β，即正确拒绝 H₀ 的概率。</p>
 </details>
 <details class="question">
-<summary>3. 什么是效应量？为什么只看 p 值不够？</summary>
+<summary>3. 什么是效应量？为什么只看 p 值不够？〔进阶 · 数据分析岗〕</summary>
 <p>效应量是效应"有多大"的度量（如 Cohen's d）。p 值只告诉你"效应是否可能为零"，不告诉你"效应多大"。样本极大时，再小的效应也显著，所以必须同时报告效应量。</p>
 </details>
 <details class="question">
-<summary>4. 中心极限定理（CLT）是什么？</summary>
+<summary>4. 中心极限定理（CLT）是什么？〔基础 · 数据分析岗〕</summary>
 <p>无论总体分布是什么形态，只要样本量足够大，<strong>样本均值的抽样分布</strong>就会趋近正态分布，均值逼近总体均值。这是很多统计推断的理论基础。</p>
 </details>
 <details class="question">
-<summary>5. 频率学派和贝叶斯学派的核心区别？</summary>
+<summary>5. 频率学派和贝叶斯学派的核心区别？〔进阶 · 数据科学岗〕</summary>
 <p>频率学派把概率看作"长期重复下的频率"，参数是固定未知的，靠 p 值做假设检验。贝叶斯学派把概率看作"信念程度"，参数是随机变量，用先验 + 数据更新出后验（贝叶斯定理）。</p>
 </details>
 <details class="question">
-<summary>6. 贝叶斯定理是什么？先验/似然/后验各是什么？</summary>
+<summary>6. 贝叶斯定理是什么？先验/似然/后验各是什么？〔基础 · 数据科学岗〕</summary>
 <p>贝叶斯定理：<code>P(假设|数据) = P(数据|假设)·P(假设) / P(数据)</code>。<strong>先验</strong> = 看到数据前对假设的信念（如发病率 1%）；<strong>似然</strong> = 假设为真时数据的概率（如敏感度 99%）；<strong>后验</strong> = 看到数据后更新的信念。</p>
 </details>
 <details class="question">
-<summary>7. 什么是假设检验？零假设 H₀ 是什么？</summary>
+<summary>7. 什么是假设检验？零假设 H₀ 是什么？〔入门 · 通用必考〕</summary>
 <p>假设检验是先假定一个"无效应"的零假设 H₀，再计算数据在 H₀ 下的罕见程度（p 值），若足够罕见就拒绝 H₀。H₀ 通常是"无差异、无效果、纯随机"，是"默认待证伪"的命题。</p>
 </details>
 <details class="question">
-<summary>8. 什么是置信区间？</summary>
+<summary>8. 什么是置信区间？〔基础 · 数据分析岗〕</summary>
 <p>置信区间是在给定置信水平（如 95%）下，对总体参数的区间估计。95% 置信区间的意思是：若重复抽样很多次，约 95% 的区间会包含真实参数。它比单个点估计更能体现不确定性。</p>
 </details>
 <details class="question">
-<summary>9. 相关和因果有什么区别？</summary>
+<summary>9. 相关和因果有什么区别？〔基础 · 数据分析岗〕</summary>
 <p>相关只是两个变量一起变（可正可负），因果是指一个导致另一个。有相关未必有因果（可能有混淆变量、反向因果或纯巧合）。"冰激凌销量和溺水人数相关"是因为共同因素——夏天。</p>
 </details>
 <details class="question">
-<summary>10. 大数定律是什么？</summary>
+<summary>10. 大数定律是什么？〔入门 · 通用必考〕</summary>
 <p>样本量越大，样本均值越接近总体期望。这就是"随机森林里 800 人猜牛重取平均最准"的原理——个体误差被平均掉。</p>
 </details>
 <hr />
 <h2 id="_3">二、机器学习基础<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>11. 监督学习和无监督学习有什么区别？</summary>
+<summary>11. 监督学习和无监督学习有什么区别？〔入门 · 通用必考〕</summary>
 <p>监督学习有标签 y（如分类、回归），目标是学 X→y 的映射。无监督学习没有标签（如聚类、降维），目标是发现数据内部结构。半监督/强化学习是延伸。</p>
 </details>
 <details class="question">
-<summary>12. 什么是过拟合和欠拟合？怎么解决？</summary>
+<summary>12. 什么是过拟合和欠拟合？怎么解决？〔基础 · 通用必考〕</summary>
 <p>过拟合 = 训练集表现好、测试集差（模型背下了噪声）；欠拟合 = 训练集就差（模型太简单）。过拟合解决：加正则化、更多数据、交叉验证、降低模型复杂度、集成；欠拟合解决：加特征、用更复杂模型、减少正则化。</p>
 </details>
 <details class="question">
-<summary>13. 什么是偏差-方差权衡？</summary>
+<summary>13. 什么是偏差-方差权衡？〔进阶 · 大厂算法岗〕</summary>
 <p>偏差 = 因模型过简导致的系统性误差（欠拟合）；方差 = 因对训练数据敏感导致的波动（过拟合）。总误差 ≈ 偏差² + 方差 + 噪声，两者此消彼长，要找平衡点。</p>
 </details>
 <details class="question">
-<summary>14. 训练集、验证集、测试集分别干什么？</summary>
+<summary>14. 训练集、验证集、测试集分别干什么？〔基础 · 通用必考〕</summary>
 <p>训练集：拟合模型参数。验证集：调超参数、选模型。测试集：最终评估，<strong>只准用一次</strong>，绝不能参与训练或调参，否则评估失真（数据泄露）。</p>
 </details>
 <details class="question">
-<summary>15. 什么是交叉验证？为什么用它？</summary>
+<summary>15. 什么是交叉验证？为什么用它？〔基础 · 大厂算法岗〕</summary>
 <p>把数据分成 k 份，轮流用 k−1 份训练、1 份验证，重复 k 次取平均。它让每份数据都被验证过，评估更稳定，能防止"碰巧一次切分导致的乐观估计"。</p>
 </details>
 <details class="question">
-<summary>16. 什么是特征工程？</summary>
+<summary>16. 什么是特征工程？〔基础 · 大厂算法岗〕</summary>
 <p>对原始数据做转换，构造更有信息量的输入特征（如分桶、交互、归一化、编码、聚合）。"数据和特征决定了模型上限，算法只是逼近这个上限"。</p>
 </details>
 <details class="question">
-<summary>17. 什么是正则化？L1 和 L2 的区别？</summary>
+<summary>17. 什么是正则化？L1 和 L2 的区别？〔基础 · 大厂算法岗〕</summary>
 <p>正则化是在损失函数里加惩罚项防止过拟合。L1（LASSO）加系数绝对值之和，能把系数压到 0，做特征选择；L2（Ridge）加系数平方和，让系数收缩但不为 0，缓解共线。</p>
 </details>
 <details class="question">
-<summary>18. 什么是数据泄露（data leakage）？</summary>
+<summary>18. 什么是数据泄露（data leakage）？〔进阶 · 大厂算法岗〕</summary>
 <p>模型在训练时"偷看"了不该知道的信息（如测试集标签、未来数据），导致离线评估虚高、上线失效。典型例子：先用全量数据做标准化再切分、把目标变量相关特征泄漏进训练集。</p>
 </details>
 <hr />
 <h2 id="2">三、回归（对应第 2 周）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>19. 线性回归（OLS）有哪些假设？</summary>
+<summary>19. 线性回归（OLS）有哪些假设？〔基础 · 数据分析岗〕</summary>
 <p>线性关系、误差独立、同方差、误差正态（用于推断）、自变量之间无完全多重共线性。违反会影响系数估计的稳定性和显著性检验。</p>
 </details>
 <details class="question">
-<summary>20. 什么是多重共线性？怎么检测和解决？</summary>
+<summary>20. 什么是多重共线性？怎么检测和解决？〔进阶 · 数据分析岗〕</summary>
 <p>预测变量之间强相关，导致系数估计不稳定（符号乱跳、标准误放大）。检测：VIF（方差膨胀因子，&gt;10 提示有问题）、相关矩阵。解决：删变量、正则化（Ridge/Elastic Net）、PCA 降维。</p>
 </details>
 <details class="question">
-<summary>21. Lasso 和 Ridge 的区别？</summary>
+<summary>21. Lasso 和 Ridge 的区别？〔基础 · 大厂算法岗〕</summary>
 <p>Lasso（L1）能把系数压成 0，自动做特征选择，但共线时只随机留一个；Ridge（L2）系数收缩但不会为 0，能处理共线但删不掉变量。两者合起来就是弹性网络。</p>
 </details>
 <details class="question">
-<summary>22. 什么是弹性网络（Elastic Net）？</summary>
+<summary>22. 什么是弹性网络（Elastic Net）？〔进阶 · 大厂算法岗〕</summary>
 <p>损失函数同时加 L1 和 L2 惩罚（加权平均）。兼顾 Lasso 的特征选择和 Ridge 的共线稳定性，高维（p&gt;n）数据下尤其好用。</p>
 </details>
 <details class="question">
-<summary>23. R² 和调整 R² 有什么区别？</summary>
+<summary>23. R² 和调整 R² 有什么区别？〔入门 · 数据分析岗〕</summary>
 <p>R² 是"被解释方差比例"，加变量只会增大或不变，可能虚高；调整 R² 对变量个数做了惩罚，变量没用时反而下降，更适合多变量模型比较。</p>
 </details>
 <details class="question">
-<summary>24. 线性回归和逻辑回归有什么区别？</summary>
+<summary>24. 线性回归和逻辑回归有什么区别？〔基础 · 通用必考〕</summary>
 <p>线性回归预测连续值（如房价）；逻辑回归做分类，输出经 sigmoid 映射到 (0,1) 的概率。逻辑回归的损失是交叉熵，不是 MSE。</p>
 </details>
 <details class="question">
-<summary>25. 什么是损失函数？常用的有哪些？</summary>
+<summary>25. 什么是损失函数？常用的有哪些？〔基础 · 大厂算法岗〕</summary>
 <p>损失函数衡量"预测错的代价"。回归常用 MSE（均方误差）、MAE（绝对误差）；分类常用交叉熵（cross-entropy）。模型训练就是最小化损失函数。</p>
 </details>
 <details class="question">
-<summary>26. AIC 和 BIC 有什么区别？</summary>
+<summary>26. AIC 和 BIC 有什么区别？〔进阶 · 数据科学岗〕</summary>
 <p>都是"模型复杂度惩罚"准则，值越小越好。AIC 惩罚较轻、适合预测/交叉验证；BIC 惩罚更重、更倾向选简单模型、适合估计"真实模型"；小样本推荐 AICc。</p>
 </details>
 <hr />
 <h2 id="svm-3">四、分类：SVM 与决策树（对应第 3 周）<a class="headerlink" href="#svm-3" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>27. SVM 的核心思想是什么？</summary>
+<summary>27. SVM 的核心思想是什么？〔基础 · 大厂算法岗〕</summary>
 <p>找一个"最大间隔"超平面把两类分开，离超平面最近的样本（支持向量）决定边界。目标是间隔越大、泛化越好。</p>
 </details>
 <details class="question">
-<summary>28. 什么是核技巧（kernel trick）？常用的核？</summary>
+<summary>28. 什么是核技巧（kernel trick）？常用的核？〔进阶 · 大厂算法岗〕</summary>
 <p>低维线性不可分时，通过核函数把数据隐式映射到高维，使其线性可分，而不用显式计算高维坐标。常用：线性核、多项式核、RBF（径向基，最常用）、Sigmoid 核。</p>
 </details>
 <details class="question">
-<summary>29. 决策树的原理是什么？</summary>
+<summary>29. 决策树的原理是什么？〔基础 · 通用必考〕</summary>
 <p>递归地选择"最能把数据分纯"的特征和切分点，把样本一层层划分，直到叶子节点。像一连串 if-else 规则。</p>
 </details>
 <details class="question">
-<summary>30. GINI 和熵（entropy）是什么？</summary>
+<summary>30. GINI 和熵（entropy）是什么？〔基础 · 大厂算法岗〕</summary>
 <p>都是衡量"不纯度"的指标，值越小越纯（全是一类时 = 0）。GINI = 1 − Σp²；熵 = −Σ p·log₂p。决策树用它来选最优切分。</p>
 </details>
 <details class="question">
-<summary>31. 决策树的优缺点？</summary>
+<summary>31. 决策树的优缺点？〔基础 · 大厂算法岗〕</summary>
 <p>优点：可解释、无需特征缩放、能处理非线性、对异常值稳健。缺点：容易过拟合、不稳定（对数据小变化敏感）、贪心切分可能非全局最优。</p>
 </details>
 <details class="question">
-<summary>32. 什么是信息增益？</summary>
+<summary>32. 什么是信息增益？〔进阶 · 大厂算法岗〕</summary>
 <p>用某特征切分后"不纯度下降了多少"（父节点熵 − 子节点加权熵）。信息增益越大，说明这个特征越能区分样本。信息增益比（gain ratio）会除以特征本身的熵，避免偏向取值多的特征。</p>
 </details>
 <details class="question">
-<summary>33. 决策树怎么防止过拟合？</summary>
+<summary>33. 决策树怎么防止过拟合？〔基础 · 大厂算法岗〕</summary>
 <p>剪枝（预剪枝：限制深度/最少样本数/最少增益；后剪枝：建完再砍）、限制叶子节点数、用集成方法（随机森林）代替单棵树。</p>
 </details>
 <details class="question">
-<summary>34. 逻辑回归、决策树、SVM 怎么选？</summary>
+<summary>34. 逻辑回归、决策树、SVM 怎么选？〔进阶 · 数据科学岗〕</summary>
 <p>需要强可解释/概率输出 → 逻辑回归；特征复杂非线性、要直观规则 → 决策树；中小样本高维、追求分类边界 → SVM（RBF）；大数据、追求效果 → 直接用随机森林/XGBoost。</p>
 </details>
 <hr />
 <h2 id="4">五、集成方法（对应第 4 周）<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>35. Bagging 和 Boosting 的区别？</summary>
+<summary>35. Bagging 和 Boosting 的区别？〔基础 · 通用必考〕</summary>
 <p>Bagging：并行、有放回采样、模型独立，取平均/投票，<strong>降低方差</strong>（代表：随机森林）。Boosting：顺序、给错分样本加权、后一个修前一个，<strong>降低偏差</strong>（代表：XGBoost/AdaBoost）。</p>
 </details>
 <details class="question">
-<summary>36. 什么是随机森林？</summary>
+<summary>36. 什么是随机森林？〔基础 · 通用必考〕</summary>
 <p>基于 Bagging：有放回抽样生成多个子集，每个子集训一棵决策树，且每次切分只随机选一部分特征，最后投票/平均。随机性让树之间差异大，集成后更稳更准。</p>
 </details>
 <details class="question">
-<summary>37. 什么是袋外样本（OOB）？</summary>
+<summary>37. 什么是袋外样本（OOB）？〔进阶 · 大厂算法岗〕</summary>
 <p>Bagging 有放回抽样时，每次约 37%（约 1/3）样本没被抽中，这些"袋外"样本可当作免费验证集，用来估模型误差或特征重要性。</p>
 </details>
 <details class="question">
-<summary>38. 什么是 XGBoost？为什么它强？</summary>
+<summary>38. 什么是 XGBoost？为什么它强？〔进阶 · 大厂算法岗〕</summary>
 <p>梯度提升树的工程实现：正则化防过拟合、自动处理缺失值、支持并行、二阶导数加速、早停等。因其在 Kaggle 竞赛的统治力而出名。</p>
 </details>
 <details class="question">
-<summary>39. 随机森林和 XGBoost 怎么选？</summary>
+<summary>39. 随机森林和 XGBoost 怎么选？〔进阶 · 大厂算法岗〕</summary>
 <p>小数据/要快速稳的基线 → 随机森林（少调参）；大数据/追求极致精度 → XGBoost（可调性强）。时间紧先上随机森林，有精力再上 XGBoost 调优。</p>
 </details>
 <details class="question">
-<summary>40. 什么是 AdaBoost？</summary>
+<summary>40. 什么是 AdaBoost？〔进阶 · 大厂算法岗〕</summary>
 <p>自适应提升：每个弱学习器是"决策树桩"（只切一次），每轮提高上一轮分错样本的权重。缺点是怕噪声和异常值，大样本比 XGBoost 慢。</p>
 </details>
 <details class="question">
-<summary>41. 集成方法为什么能提升性能？</summary>
+<summary>41. 集成方法为什么能提升性能？〔进阶 · 大厂算法岗〕</summary>
 <p>单个模型有偏差或方差，多个"多样且独立"的模型取平均/投票能相互抵消误差（大数定律）。前提是基模型要足够多样，否则"一群想得一样的人等于没想"。</p>
 </details>
 <details class="question">
-<summary>42. 什么是 Stacking？</summary>
+<summary>42. 什么是 Stacking？〔高级 · 大厂算法岗〕</summary>
 <p>把多个不同模型的预测结果作为新特征，再训练一个元模型（meta-model）做最终预测，是"模型的集成"。比简单的投票/平均更灵活。</p>
 </details>
 <hr />
 <h2 id="_4">六、模型评估<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>43. 准确率、精确率、召回率有什么区别？</summary>
+<summary>43. 准确率、精确率、召回率有什么区别？〔基础 · 通用必考〕</summary>
 <p>准确率 = 总正确率；精确率 = TP/(TP+FP)，"判为阳里有多少真阳"；召回率 = TP/(TP+FN)，"真阳里抓出多少"。类别不平衡时准确率会骗人。</p>
 </details>
 <details class="question">
-<summary>44. 什么是混淆矩阵？</summary>
+<summary>44. 什么是混淆矩阵？〔入门 · 通用必考〕</summary>
 <p>2×2 表格：TP（真阳）、FP（假阳）、FN（假阴）、TN（真阴），是精确率/召回率/AUC 等指标的基础。</p>
 </details>
 <details class="question">
-<summary>45. 什么是 ROC 曲线和 AUC？</summary>
+<summary>45. 什么是 ROC 曲线和 AUC？〔基础 · 通用必考〕</summary>
 <p>ROC 以假阳率（1−特异度）为横轴、真阳率（敏感度）为纵轴，随阈值变化画出曲线。AUC 是曲线下面积，0.5 是瞎猜、1 是完美，衡量模型"把正例排在负例前面"的整体能力，与阈值无关。</p>
 </details>
 <details class="question">
-<summary>46. 什么时候更看重精确率 vs 召回率？</summary>
+<summary>46. 什么时候更看重精确率 vs 召回率？〔基础 · 数据分析岗〕</summary>
 <p>看重精确率：误报代价高（垃圾邮件别误删、抓人别冤枉）。看重召回率：漏报代价高（癌症筛查、欺诈识别宁错不漏）。</p>
 </details>
 <details class="question">
-<summary>47. 类别不平衡怎么处理？</summary>
+<summary>47. 类别不平衡怎么处理？〔进阶 · 大厂算法岗〕</summary>
 <p>重采样（过采样/欠采样，如 SMOTE）、类别权重、换评估指标（用 AUC/F1 而非准确率）、用对不平衡更稳健的模型。</p>
 </details>
 <details class="question">
-<summary>48. F1 分数是什么？</summary>
+<summary>48. F1 分数是什么？〔基础 · 通用必考〕</summary>
 <p>精确率和召回率的调和平均：<code>F1 = 2·P·R/(P+R)</code>，两者都高时 F1 才高，适合不平衡数据下的单一指标。</p>
 </details>
 <details class="question">
-<summary>49. 什么是 SMOTE？</summary>
+<summary>49. 什么是 SMOTE？〔进阶 · 大厂算法岗〕</summary>
 <p>合成少数类过采样：在少数类样本之间插值生成新样本，比简单复制样本更能缓解过拟合，是处理不平衡的常用手段。</p>
 </details>
 <hr />
 <h2 id="_5">七、特征工程与数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>50. 缺失值怎么处理？</summary>
+<summary>50. 缺失值怎么处理？〔入门 · 通用必考〕</summary>
 <p>删（缺失太多）、填充（均值/中位数/众数/前后值）、用模型预测填充、或保留缺失并加"是否缺失"标志。树模型天然能处理缺失，XGBoost 内置。</p>
 </details>
 <details class="question">
-<summary>51. 标准化和归一化有什么区别？</summary>
+<summary>51. 标准化和归一化有什么区别？〔基础 · 大厂算法岗〕</summary>
 <p>标准化（z-score）：减均值除标准差，结果服从均值 0 方差 1；归一化（min-max）：缩放到 [0,1]。对基于距离/梯度的模型（SVM、神经网络、正则化回归）通常必须做；树模型不需要。</p>
 </details>
 <details class="question">
-<summary>52. 分类变量怎么编码？</summary>
+<summary>52. 分类变量怎么编码？〔基础 · 大厂算法岗〕</summary>
 <p>One-hot（独热）：每个类别一列，适合无序类别、树/线性都可用，但类别多时会爆炸。Label（标签）：映射成整数，适合有序类别，但线性模型会把顺序当数值含义。</p>
 </details>
 <details class="question">
-<summary>53. 异常值怎么处理？</summary>
+<summary>53. 异常值怎么处理？〔基础 · 数据分析岗〕</summary>
 <p>先识别（箱线图、3σ、孤立森林），再决定：删除、截断（winsorize）、变换（log）、或用对异常值稳健的模型（树模型）。不能无脑删，可能是有意义的事件。</p>
 </details>
 <details class="question">
-<summary>54. 特征选择有哪些方法？</summary>
+<summary>54. 特征选择有哪些方法？〔进阶 · 大厂算法岗〕</summary>
 <p>过滤法（Filter，如方差、相关性）、包裹法（Wrapper，如递归消除 RFE）、嵌入法（Embedded，如 Lasso、树模型的特征重要性）。Lasso 是最省事的嵌入式选择。</p>
 </details>
 <details class="question">
-<summary>55. 什么是特征缩放？为什么重要？</summary>
+<summary>55. 什么是特征缩放？为什么重要？〔基础 · 大厂算法岗〕</summary>
 <p>把不同量纲的特征拉到同一尺度。若不缩放，梯度下降收敛慢、距离类算法被大数值特征主导、正则化惩罚不公平。</p>
 </details>
 <hr />
 <h2 id="_6">八、业务 / 场景题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <details class="question">
-<summary>56. 给你一个「用户流失预测」任务，你会怎么做？</summary>
+<summary>56. 给你一个「用户流失预测」任务，你会怎么做？〔进阶 · 数据科学岗〕</summary>
 <p>按 CRISP-DM：业务理解（定义流失、定目标）→ 数据理解（行为/画像）→ 数据准备（清洗、特征工程、切分）→ 建模（先逻辑回归打基线，再上 XGBoost）→ 评估（AUC + 业务 ROI）→ 部署（打分 + 对高流失风险用户营销干预）。</p>
 </details>
 <details class="question">
-<summary>57. 为什么大样本下 p 值几乎必然显著？</summary>
+<summary>57. 为什么大样本下 p 值几乎必然显著？〔进阶 · 数据分析岗〕</summary>
 <p>p 值依赖标准误，标准误 = σ/√n，n 越大标准误越小、统计量越大、p 越小。所以再小的真实差异，样本一多就"显著"——p 值被样本量绑架，这时更该看效应量。</p>
 </details>
 <details class="question">
-<summary>58. 怎么向非技术的人解释 AUC？</summary>
+<summary>58. 怎么向非技术的人解释 AUC？〔入门 · 通用必考〕</summary>
 <p>"AUC 是模型分辨好坏的能力：随机抽一个'好用户'和一个'坏用户'，模型把好用户排在前面概率。0.5 是瞎猜，0.9 是很会分辨。"</p>
 </details>
 <details class="question">
-<summary>59. 模型上线后效果变差（退化）怎么办？</summary>
+<summary>59. 模型上线后效果变差（退化）怎么办？〔高级 · 大厂算法岗〕</summary>
 <p>排查数据分布漂移（特征分布变了）、概念漂移（规律变了）、数据泄露/特征失效、标签质量问题；然后重训、监控 + 预警、做线上 A/B、必要时加自动化重训。</p>
 </details>
 <details class="question">
-<summary>60. 怎么判断一个模型能不能上线？</summary>
+<summary>60. 怎么判断一个模型能不能上线？〔进阶 · 大厂算法岗〕</summary>
 <p>看四件事：① 离线指标（AUC/精确率/召回率）达标且经交叉验证稳定；② 业务收益（ROI）为正；③ 无数据泄露、特征都能在生产环境拿到；④ 有监控和回滚方案。上线后还要持续监控漂移。</p>
 </details>
 <hr />
