@@ -799,6 +799,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十二、进阶手撕题（高频，建议能手写）
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -954,6 +965,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十二、进阶手撕题（高频，建议能手写）
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -973,7 +995,7 @@
 
 <h1 id="_1">面试题库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>精选数据科学 / 机器学习常见面试题 <strong>105 道</strong>，按课程主线分 <strong>11 大类</strong>。点开题目即可看答案，建议先自己答再看。可用顶部按钮按「难度 / 岗位」筛选。</p>
+<p>精选数据科学 / 机器学习常见面试题 <strong>117 道</strong>，按课程主线分 <strong>12 大类</strong>。点开题目即可看答案，建议先自己答再看。可用顶部按钮按「难度 / 岗位」筛选。</p>
 </blockquote>
 <hr />
 <div class="admonition info">
@@ -1002,7 +1024,7 @@
   <button class="role-btn" data-value="数据科学岗">数据科学岗</button>
   <button class="role-btn" data-value="外企与量化">外企与量化</button>
 </div>
-<p>当前显示 <span id="q-count">105</span> 题</p>
+<p>当前显示 <span id="q-count">117</span> 题</p>
 
 <h2 id="_2">一、统计学基础<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <details class="question">
@@ -1339,15 +1361,15 @@
 <p>以下按公司/岗位归类，是这些公司面试中的高频题型（非逐字真题，题型与考察点真实）。答案侧重思路与要点。</p>
 </div>
 <details class="question">
-<summary>77. 字节：推荐系统的召回和排序分别是什么？〔进阶 · 大厂算法岗〕</summary>
+<summary>77. 字节：推荐系统的召回和排序分别是什么？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>召回从海量候选里快速筛出几百个可能感兴趣的（重效率，常用双塔/向量召回）；排序对召回结果精排打分（重精度）。完整漏斗：召回 → 粗排 → 精排 → 重排。</p>
 </details>
 <details class="question">
-<summary>78. 字节：怎么保证训练/推理时的特征一致性？〔高级 · 大厂算法岗〕</summary>
+<summary>78. 字节：怎么保证训练/推理时的特征一致性？〔高级 · 大厂算法岗〕〔三面〕</summary>
 <p>线上线下特征口径不一致会导致线上退化。解决：统一特征平台、离线/在线特征同源落表、线上特征回放校验、监控特征分布漂移。</p>
 </details>
 <details class="question">
-<summary>79. 字节：用 SQL 求每个用户最近一次购买记录（窗口函数）。〔基础 · 数据分析岗〕</summary>
+<summary>79. 字节：用 SQL 求每个用户最近一次购买记录（窗口函数）。〔基础 · 数据分析岗〕〔一面〕</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rn</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
@@ -1355,79 +1377,79 @@
 </code></pre></div>
 </details>
 <details class="question">
-<summary>80. 阿里：什么是辛普森悖论？和 AB 实验分流有什么关系？〔进阶 · 数据科学岗〕</summary>
+<summary>80. 阿里：什么是辛普森悖论？和 AB 实验分流有什么关系？〔进阶 · 数据科学岗〕〔二面〕</summary>
 <p>辛普森悖论：分组看是趋势 A，合并后反转为趋势 B（由混杂变量导致）。AB 实验要正确随机分流、检查各组基线一致，并同时看整体与分层结果，避免被混杂变量误导。</p>
 </details>
 <details class="question">
-<summary>81. 阿里：特征重要性怎么算？〔基础 · 大厂算法岗〕</summary>
+<summary>81. 阿里：特征重要性怎么算？〔基础 · 大厂算法岗〕〔一面〕</summary>
 <p>树模型：信息增益/分裂次数/节点杂质下降总量。模型无关方法：permutation importance（打乱某特征看性能下降多少）、SHAP（加性归因、更精确）。</p>
 </details>
 <details class="question">
-<summary>82. 阿里：怎么评估一次营销活动的增量效果？〔高级 · 数据科学岗〕</summary>
+<summary>82. 阿里：怎么评估一次营销活动的增量效果？〔高级 · 数据科学岗〕〔三面〕</summary>
 <p>不能只看活动后转化，要估计"没活动也会发生"的反事实。方法：随机 AB 实验、倾向得分匹配（PSM）、双重差分（DID）、因果森林等因果推断手段。</p>
 </details>
 <details class="question">
-<summary>83. 腾讯：用户留存分析怎么做（漏斗 / 同期群）？〔进阶 · 数据分析岗〕</summary>
+<summary>83. 腾讯：用户留存分析怎么做（漏斗 / 同期群）？〔进阶 · 数据分析岗〕〔二面〕</summary>
 <p>漏斗看各环节转化与流失点；同期群（cohort）按注册/首购时间分组，看不同批次用户的留存曲线，定位是哪个环节、哪批用户流失。</p>
 </details>
 <details class="question">
-<summary>84. 腾讯：社交/游戏里怎么做用户分群？〔进阶 · 数据科学岗〕</summary>
+<summary>84. 腾讯：社交/游戏里怎么做用户分群？〔进阶 · 数据科学岗〕〔二面〕</summary>
 <p>选行为/画像特征 → 标准化 → 降维（PCA）→ 聚类（KMeans/层次/DBSCAN）→ 按群特征命名画像 → 精细化运营。注意聚类数选择与可解释性。</p>
 </details>
 <details class="question">
-<summary>85. 腾讯：怎么判断一个数据指标波动是正常的还是异常？〔进阶 · 数据分析岗〕</summary>
+<summary>85. 腾讯：怎么判断一个数据指标波动是正常的还是异常？〔进阶 · 数据分析岗〕〔一面〕</summary>
 <p>看历史波动区间（均值±k倍标准差）、同比环比、是否节假日/活动/上线变更导致；再用异常检测算法（孤立森林/时序模型）辅助，结合业务判断。</p>
 </details>
 <details class="question">
-<summary>86. 美团：外卖配送时间（ETA）预测怎么建模？〔进阶 · 大厂算法岗〕</summary>
+<summary>86. 美团：外卖配送时间（ETA）预测怎么建模？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>特征：商家出餐、骑手位置、天气、时段、距离、路况等；用回归/树模型/XGBoost 预测，分城市/时段建模；损失可不对称（超时惩罚更高）。</p>
 </details>
 <details class="question">
-<summary>87. 美团：补贴是否带来增量订单？〔高级 · 数据科学岗〕</summary>
+<summary>87. 美团：补贴是否带来增量订单？〔高级 · 数据科学岗〕〔三面〕</summary>
 <p>做增量/归因分析：AB 实验对照，或用因果方法（PSM/DID）估计补贴的净增量，扣除"本来就会下单"的基数，算 ROI。</p>
 </details>
 <details class="question">
-<summary>88. 美团：模型线上效果衰减（退化）怎么办？〔进阶 · 大厂算法岗〕</summary>
+<summary>88. 美团：模型线上效果衰减（退化）怎么办？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>原因：数据/概念漂移、特征失效、负反馈循环。解决：持续监控漂移指标、定时重训、在线学习、A/B 回归、特征新鲜度治理。</p>
 </details>
 <details class="question">
-<summary>89. 百度：搜索里 CTR 预估怎么做？〔进阶 · 大厂算法岗〕</summary>
+<summary>89. 百度：搜索里 CTR 预估怎么做？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>预测点击率。经典：LR（稀疏特征）、FM（二阶交叉）、GBDT+LR；深度模型 DIN/DIEN 等。核心是海量稀疏特征工程 + 大规模训练。</p>
 </details>
 <details class="question">
-<summary>90. 百度：什么是知识图谱？实体对齐、链接预测是什么？〔进阶 · 大厂算法岗〕</summary>
+<summary>90. 百度：什么是知识图谱？实体对齐、链接预测是什么？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>用「实体-关系-实体」三元组表示知识。链接预测=判断两个实体间可能存在什么关系；实体对齐=合并不同来源指向同一实体的节点。常用 TransE 等图嵌入建模。</p>
 </details>
 <details class="question">
-<summary>91. 华为：通信网络异常检测怎么做？〔进阶 · 大厂算法岗〕</summary>
+<summary>91. 华为：通信网络异常检测怎么做？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>时序异常检测（告警突增、KPI 突降）、孤立森林/LSTM-AE 等无监督方法，结合规则阈值；关键要低误报、可解释、能定位根因。</p>
 </details>
 <details class="question">
-<summary>92. 华为：什么是模型压缩 / 知识蒸馏？〔进阶 · 大厂算法岗〕</summary>
+<summary>92. 华为：什么是模型压缩 / 知识蒸馏？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>把大模型能力迁移到小模型用于端侧/边缘部署：知识蒸馏（大模型软标签教小模型）、剪枝、量化（降精度）、低秩分解。</p>
 </details>
 <details class="question">
-<summary>93. 外企（Google/Meta）：MAP@K 和 NDCG 是什么？〔进阶 · 大厂算法岗〕</summary>
+<summary>93. 外企（Google/Meta）：MAP@K 和 NDCG 是什么？〔进阶 · 大厂算法岗〕〔一面〕</summary>
 <p>排序质量指标。MAP@K 看前 K 个结果相关性的平均精度；NDCG 对位置加权（越靠前权重越大）。都是搜索/推荐的核心排序指标。</p>
 </details>
 <details class="question">
-<summary>94. 外企（Google/Meta）：数据大到单机放不下怎么办？〔进阶 · 大厂算法岗〕</summary>
+<summary>94. 外企（Google/Meta）：数据大到单机放不下怎么办？〔进阶 · 大厂算法岗〕〔二面〕</summary>
 <p>分布式存储/计算（Spark/Hadoop）、分片、抽样、增量/流式训练、特征降维；模型侧用分布式训练框架或 GPU 集群。</p>
 </details>
 <details class="question">
-<summary>95. 外企：AB 测试的最小样本量怎么估算？〔进阶 · 数据科学岗〕</summary>
+<summary>95. 外企：AB 测试的最小样本量怎么估算？〔进阶 · 数据科学岗〕〔二面〕</summary>
 <p>由基线转化率、期望最小可检测效应（MDE）、显著性水平 α、统计功效 1−β 决定。MDE 越小、功效越高，所需样本越多；可用功效分析工具估算。</p>
 </details>
 <details class="question">
-<summary>96. 量化：量化策略里的过拟合长什么样？怎么防？〔高级 · 外企与量化〕</summary>
+<summary>96. 量化：量化策略里的过拟合长什么样？怎么防？〔高级 · 外企与量化〕〔三面〕</summary>
 <p>回测反复调参导致"拟合历史噪声"，实盘失效。防：样本外测试、交叉验证、参数敏感性分析、计入交易成本/滑点、少参数、看稳健指标（夏普/回撤）。</p>
 </details>
 <details class="question">
-<summary>97. 量化：什么是夏普比率？回测有哪些陷阱？〔进阶 · 外企与量化〕</summary>
+<summary>97. 量化：什么是夏普比率？回测有哪些陷阱？〔进阶 · 外企与量化〕〔二面〕</summary>
 <p>夏普=(策略收益−无风险利率)/收益波动，衡量单位风险回报。回测陷阱：过拟合、未来函数（偷看未来数据）、忽略交易成本/滑点、幸存者偏差。</p>
 </details>
 <details class="question">
-<summary>98. 手撕：用 Python 手写线性回归的梯度下降。〔基础 · 大厂算法岗〕</summary>
+<summary>98. 手撕：用 Python 手写线性回归的梯度下降。〔基础 · 大厂算法岗〕〔手撕〕</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gd_lr</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -1440,11 +1462,11 @@
 </code></pre></div>
 </details>
 <details class="question">
-<summary>99. 手撕：AUC 的计算思路是什么？〔进阶 · 大厂算法岗〕</summary>
+<summary>99. 手撕：AUC 的计算思路是什么？〔进阶 · 大厂算法岗〕〔手撕〕</summary>
 <p>AUC = 随机正样本排在随机负样本前面的概率。可按预测分排序，统计"正样本排在负样本前"的对子比例；或用"排序后正例的秩和"公式计算。</p>
 </details>
 <details class="question">
-<summary>100. 手撕：K-Means 聚类的思路是什么？〔基础 · 大厂算法岗〕</summary>
+<summary>100. 手撕：K-Means 聚类的思路是什么？〔基础 · 大厂算法岗〕〔手撕〕</summary>
 <p>①随机选 k 个中心；②每个点归到最近的中心；③更新中心为该簇均值；④重复②③直到中心不再变化。对初始点敏感，常用 k-means++ 初始化。</p>
 </details>
 <details class="question">
@@ -1467,9 +1489,139 @@
 <summary>105. 什么是 embedding？word2vec 的原理？〔进阶 · 大厂算法岗〕</summary>
 <p>把离散对象（词/用户/物品）映射成稠密向量，语义相近则向量相近。word2vec 用 CBOW/Skip-gram 在语料上学词向量，能捕捉"国王−男人+女人≈女王"这类语义关系。</p>
 </details>
+<hr />
+<h2 id="_9">十二、进阶手撕题（高频，建议能手写）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>106. 手撕：逻辑回归的梯度下降（sigmoid + 交叉熵）。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">logistic_gd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="mf">0.0</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">w</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">w</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="n">n</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">b</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>107. 手撕：softmax（注意数值稳定）。〔基础 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># 减最大值防上溢</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">return</span> <span class="n">e</span> <span class="o">/</span> <span class="n">e</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>108. 手撕：用 numpy 实现一个两层神经网络（前向 + 反向）。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 前向</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W1</span> <span class="o">+</span> <span class="n">b1</span><span class="p">)</span>     <span class="c1"># 隐藏层 ReLU</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">out</span> <span class="o">=</span> <span class="n">h</span> <span class="o">@</span> <span class="n">W2</span> <span class="o">+</span> <span class="n">b2</span>                   <span class="c1"># 输出层</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">out</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># MSE</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># 反向（链式法则）</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">dout</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">out</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">dW2</span><span class="p">,</span> <span class="n">db2</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">dout</span><span class="p">,</span> <span class="n">dout</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">dh</span> <span class="o">=</span> <span class="n">dout</span> <span class="o">@</span> <span class="n">W2</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="n">h</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>          <span class="c1"># ReLU 导数</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">dW1</span><span class="p">,</span> <span class="n">db1</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">dh</span><span class="p">,</span> <span class="n">dh</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>109. 手撕：多头自注意力的计算流程。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Q/K/V 线性映射后按头数拆分</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># 每个头: attn = softmax(Q @ K.T / sqrt(d_k)) @ V</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># 拼接所有头 -&gt; 再过一个输出投影 W_o</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_head</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="n">h</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="c1"># 拆成 h 份，各自算 attention，最后 concat 并投影</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="o">...</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>110. 手撕：用快排思想求 topK。〔基础 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">topk</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>  <span class="c1"># 返回最大的 k 个（不要求有序）</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">part</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">pivot</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">l</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>                <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="k">return</span> <span class="n">i</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">part</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="n">nums</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="k">elif</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span> <span class="n">l</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="k">else</span><span class="p">:</span> <span class="n">r</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>111. 手撕：AUC（用排序 + 秩和，O(n log n)）。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y_score</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>       <span class="c1"># 按分降序</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">y_true</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>         <span class="c1"># 正样本秩（1-based）</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">n_pos</span><span class="p">,</span> <span class="n">n_neg</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">ranks</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">n_pos</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_pos</span> <span class="o">*</span> <span class="n">n_neg</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>112. 手撕：K-Means（含 k-means++ 初始化）。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># k-means++：第一个中心随机，后续中心按&quot;与最近中心距离平方&quot;的概率选</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># 迭代：每个点归到最近中心 -&gt; 中心更新为该簇均值 -&gt; 直到中心不变</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>113. 手撕：决策树的 GINI 增益计算。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gini</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">/</span> <span class="n">cnt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">p</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">gain</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">g</span> <span class="o">=</span> <span class="n">gini</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">gini</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">gini</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">return</span> <span class="n">g</span>  <span class="c1"># 越大说明切分越能提纯</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>114. 手撕：Batch Normalization（训练/推理不同）。〔高级 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 训练: (x - batch_mean) / sqrt(batch_var + eps) * gamma + beta</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># 推理: 用训练时滑动平均的 mean/var 替换 batch 统计量</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>115. 手撕：IoU（交并比）计算。〔基础 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">iou</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># a,b = (x1,y1,x2,y2)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">inter</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">area_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">area_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="k">return</span> <span class="n">inter</span> <span class="o">/</span> <span class="p">(</span><span class="n">area_a</span> <span class="o">+</span> <span class="n">area_b</span> <span class="o">-</span> <span class="n">inter</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>116. 手撕：交叉熵损失及其对 softmax 输入的梯度。〔基础 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">cross_entropy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>  <span class="c1"># y one-hot, p 为 softmax 概率</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># 关键结论：对 softmax 之前的 logits 求梯度 = p - y（极简形式，面试常问）</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>117. 手撕：用 numpy 实现二维卷积。〔进阶 · 大厂算法岗〕〔手撕〕</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">kh</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">H</span> <span class="o">-</span> <span class="n">kh</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">W</span> <span class="o">-</span> <span class="n">kw</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>            <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">kh</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">kw</span><span class="p">]</span> <span class="o">*</span> <span class="n">kernel</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="k">return</span> <span class="n">out</span>
+</code></pre></div>
+</details>
 <div class="admonition tip">
 <p class="admonition-title">刷题策略</p>
-<p>全库共 105 题。求职冲刺：先刷「大厂算法岗 + 通用必考」，再按目标公司补「公司真题」；转数据分析：刷「数据分析岗」；转算法/大模型：刷「大厂算法岗」+ 第九、十节。</p>
+<p>全库共 <strong>117 题</strong>。求职冲刺：先刷「大厂算法岗 + 通用必考」，再按目标公司补「公司真题（含轮次）」，手撕题（98~100、106~117）务必能手写。转数据分析刷「数据分析岗」；转算法/大模型刷「大厂算法岗」+ 第九、十、十二节。</p>
 </div>
 
 
