@@ -54,6 +54,12 @@ markdown_extensions:
 plugins:
   - search
 
+extra_css:
+  - stylesheets/interview.css
+
+extra_javascript:
+  - javascripts/interview-filter.js
+
 nav:
   - 总览: index.md
   - 学习路线: route.md
