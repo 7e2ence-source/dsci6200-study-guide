@@ -16,13 +16,13 @@
 
 ## 优先级总纲（按就业刚需排序）
 
-1. :material-star::material-star::material-star::material-star::material-star: 决策树、随机森林、XGBoost（第3、4周）—— 面试和干活主力
-2. :material-star::material-star::material-star::material-star::material-star: 交叉验证 + 模型评估指标（精确率/召回率/AUC）—— 面试必考
-3. :material-star::material-star::material-star::material-star: 正则化回归 Ridge/Lasso/Elastic Net（第2周）—— 防过拟合基本功
-4. :material-star::material-star::material-star::material-star: 统计素养：p 值、贝叶斯思维、效应量（第1周）—— 沟通的底层语言
-5. :material-star::material-star::material-star: 大数据 3V、DIKW、CRISP-DM（第1周）—— 方法论
-6. :material-star::material-star: 概念性知识：11 个缺点、费雪/皮尔逊哲学 —— 面试谈资
-7. :material-star: 可暂缓：SVM 数学、核函数公式、Double/Group Lasso、jackknife、费雪精确检验历史
+1. 决策树、随机森林、XGBoost（第3、4周）—— 面试和干活主力
+2. 交叉验证 + 模型评估指标（精确率/召回率/AUC）—— 面试必考
+3. 正则化回归 Ridge/Lasso/Elastic Net（第2周）—— 防过拟合基本功
+4. 统计素养：p 值、贝叶斯思维、效应量（第1周）—— 沟通的底层语言
+5. 大数据 3V、DIKW、CRISP-DM（第1周）—— 方法论
+6. 概念性知识：11 个缺点、费雪/皮尔逊哲学 —— 面试谈资
+7. 可暂缓：SVM 数学、核函数公式、Double/Group Lasso、jackknife、费雪精确检验历史
 
 !!! tip "使用建议"
-    「⭐ 越多越要死磕」，「可暂缓」别恋战。每章末尾的自测题点开即可看答案。
+    上面 1~7 条按优先级从高到低排列，第 7 条可暂缓。每章末尾的自测题点开即可看答案。
