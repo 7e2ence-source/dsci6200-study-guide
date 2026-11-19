@@ -1,0 +1,36 @@
+/* 面试题库筛选按钮样式 */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+.filter-label {
+  font-weight: 600;
+  color: var(--md-typeset-color);
+  margin-right: 2px;
+}
+.filter-bar button {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  color: var(--md-typeset-color);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.filter-bar button:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+.filter-bar button.active {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+#q-count {
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+}
