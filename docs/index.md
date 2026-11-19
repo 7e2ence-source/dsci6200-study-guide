@@ -1,0 +1,28 @@
+# DSCI 6200 数据科学与机器学习
+
+> 系统化学习辅导手册 · **就业导向** · 覆盖已发布章节第 1~4 周
+
+本手册帮你把「传统统计 → 现代数据科学/机器学习」这条主线吃透，并按**就业刚需**标注了学习优先级。每章统一含 7 大模块：学习目标、核心知识点、通俗解释、就业场景、重点技能、可暂缓内容、自测题。
+
+## 就业能力地图
+
+这 4 周学完，能拼出一套「数据科学入门」完整技能链，直接对应三类岗位：
+
+| 岗位 | 最需要本课哪些能力 |
+|------|---------------------|
+| 数据分析师 | 统计素养（第1周）＋ 模型评估 ROC/AUC（第3周） |
+| 数据科学家 | 全部，尤其正则化回归（第2周）＋ 集成方法（第4周） |
+| 机器学习工程师 | 决策树/随机森林/XGBoost（第3、4周）＋ 交叉验证（第4周） |
+
+## 优先级总纲（按就业刚需排序）
+
+1. :material-star::material-star::material-star::material-star::material-star: 决策树、随机森林、XGBoost（第3、4周）—— 面试和干活主力
+2. :material-star::material-star::material-star::material-star::material-star: 交叉验证 + 模型评估指标（精确率/召回率/AUC）—— 面试必考
+3. :material-star::material-star::material-star::material-star: 正则化回归 Ridge/Lasso/Elastic Net（第2周）—— 防过拟合基本功
+4. :material-star::material-star::material-star::material-star: 统计素养：p 值、贝叶斯思维、效应量（第1周）—— 沟通的底层语言
+5. :material-star::material-star::material-star: 大数据 3V、DIKW、CRISP-DM（第1周）—— 方法论
+6. :material-star::material-star: 概念性知识：11 个缺点、费雪/皮尔逊哲学 —— 面试谈资
+7. :material-star: 可暂缓：SVM 数学、核函数公式、Double/Group Lasso、jackknife、费雪精确检验历史
+
+!!! tip "使用建议"
+    「⭐ 越多越要死磕」，「可暂缓」别恋战。每章末尾的自测题点开即可看答案。
